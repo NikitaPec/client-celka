@@ -1,0 +1,76 @@
+.myModal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.myTextError {
+    color: tomato;
+}
+
+.myForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.myModalContent {
+    padding: 25px;
+    background: rgba(255, 255, 255);
+    border-radius: 6px;
+    min-width: 500px;
+    min-height: 250px;
+}
+
+.myModalBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.myModal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPass {
+    display: flex;
+    flex-direction: row;
+}
+
+.myInputLogin {
+    width: 100%;
+    padding: 5px 15px;
+    margin: 5px 0;
+    border: 1px solid teal;
+}
+
+.myInputPass {
+    width: 90%;
+    padding: 5px 15px;
+    margin: 5px 0;
+    border: 1px solid teal;
+}
+
+.myImg {
+    margin: auto;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+
+}
+
+.myButton {
+    padding: 5px 15px;
+    margin: 15px 0;
+    color: teal;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid teal;
+    cursor: pointer;
+}
