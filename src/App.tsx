@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import './App.css';
-import ModalLR from './components/modal/ModalLR';
-import MyHeader from './components/myHeader/Myheader';
+import { observer } from "mobx-react-lite";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from ".";
+import "./App.css";
+import NavBar from "./components/myNavBar/MyNavBar";
 
 function App() {
-
-  const [modal, setModal] = useState(false);
+  const { store } = useContext(Context);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      store.checkAuth();
+    }
+  }, []);
   return (
     <div className="App">
-      <MyHeader visible={modal} setVisible={setModal} ></MyHeader>
-      <ModalLR visible={modal} setVisible={setModal} ></ModalLR>
+      <NavBar></NavBar>
     </div>
   );
 }
 
-export default App;
+export default observer(App);
