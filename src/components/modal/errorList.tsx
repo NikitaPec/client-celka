@@ -1,14 +1,14 @@
 import React from "react";
-import classes from "./MyModal.module.css"
+import "./ModalLR.css";
 
 interface Iprops {
-  title: string
+  title: string;
 }
 
 const ErrorList = (props: Iprops) => {
   return (
     <div>
-      <h5 className={classes.myTextError}>{props.title}</h5>
+      <h5 className={"myTextError"}>{props.title}</h5>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
-import classes from "./MyModal.module.css";
 import RegistrationForm from "./RegistrationForm";
+import "./ModalLR.css";
 
 export interface Props {
   visible: boolean;
@@ -9,31 +9,27 @@ export interface Props {
 }
 
 const ModalLogin = ({ visible, setVisible }: Props) => {
-  const [type, setType] = useState("login");
-  const rootClasses = [classes.myModal];
-  if (visible) {
-    rootClasses.push(classes.active);
-  }
+  const [type, setType] = useState(true);
 
   return (
-    <div className={rootClasses.join(" ")} onClick={() => setVisible(false)}>
-      <div className={classes.myModalContent} onClick={(event) => event.stopPropagation()}>
-        <div className={classes.myModalBody}>
+    <div className={`modal-LR ${visible ? "active" : ""}`} onClick={() => setVisible(false)}>
+      <div className={"myModalContent"} onClick={(event) => event.stopPropagation()}>
+        <div className={"myModalBody"}>
           <h3
-            style={{ cursor: "pointer", color: type === "login" ? "tomato" : "teal" }}
-            onClick={() => setType("login")}
+            className={`myModalBody-h3 ${type ? "active" : "inactive"}`}
+            onClick={() => setType(true)}
           >
             войти
           </h3>
           <h3
-            style={{ cursor: "pointer", color: type === "reg" ? "tomato" : "teal" }}
-            onClick={() => setType("reg")}
+            className={`myModalBody-h3 ${type ? "inactive" : "active"}`}
+            onClick={() => setType(false)}
           >
             регистрация
           </h3>
         </div>
         <hr></hr>
-        {type === "login" ? (
+        {type ? (
           <LoginForm visible={visible} setVisible={setVisible} />
         ) : (
           <RegistrationForm visible={visible} setVisible={setVisible} />

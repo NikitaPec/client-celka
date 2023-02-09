@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../..";
-import classes from "./MyModal.module.css";
+import "./ModalLR.css";
 import ErrorList from "./errorList";
 import imgShowPass from "./ico/icons8-показать-48.png";
 import imgHigePass from "./ico/icons8-скрыто-48.png";
@@ -26,9 +26,9 @@ const LoginForm = ({ visible, setVisible }: Props) => {
     }
   }
   return (
-    <div className={classes.myForm}>
+    <div className={"myForm"}>
       <input
-        className={classes.myInputLogin}
+        className={"myInputLogin"}
         onChange={(e) => setLogin(e.target.value)}
         value={login}
         type="text"
@@ -37,16 +37,14 @@ const LoginForm = ({ visible, setVisible }: Props) => {
       {arrayErrorLogin?.map((error, index) => (
         <ErrorList title={error} key={index + 1} />
       ))}
-      <div className={classes.myPass}>
+      <div className={"myPassForm"}>
         <input
-          className={classes.myInputPass}
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type={passwordVisible ? "text" : "password"}
           placeholder="Пароль"
         />
         <img
-          className={classes.myImg}
           alt={""}
           src={passwordVisible ? imgShowPass : imgHigePass}
           onClick={() => setPasswordVisible(!passwordVisible)}
@@ -55,9 +53,7 @@ const LoginForm = ({ visible, setVisible }: Props) => {
       {arrayErrorPassword?.map((error, index) => (
         <ErrorList title={error} key={index + 1} />
       ))}
-      <button className={classes.myButton} onClick={loogin}>
-        Логин
-      </button>
+      <button onClick={loogin}>Логин</button>
     </div>
   );
 };

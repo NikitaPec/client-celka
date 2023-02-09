@@ -1,4 +1,4 @@
-.myModal {
+.modal-LR {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -8,14 +8,10 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
-.myTextError {
-    color: tomato;
-}
-
-.myForm {
+.modal-LR.active {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .myModalContent {
@@ -32,15 +28,33 @@
     justify-content: space-around;
 }
 
-.myModal.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.myModalBody-h3 {
+    cursor: pointer;
+
 }
 
-.myPass {
+.myModalBody-h3.active {
+    color: teal;
+}
+
+.myModalBody-h3.inactive {
+    color: tomato;
+}
+
+.myForm {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.myForm button {
+    padding: 5px 15px;
+    margin: 15px 0;
+    color: teal;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid teal;
+    cursor: pointer;
 }
 
 .myInputLogin {
@@ -50,14 +64,19 @@
     border: 1px solid teal;
 }
 
-.myInputPass {
+.myPassForm {
+    display: flex;
+    flex-direction: row;
+}
+
+.myPassForm input {
     width: 90%;
     padding: 5px 15px;
     margin: 5px 0;
     border: 1px solid teal;
 }
 
-.myImg {
+.myPassForm img {
     margin: auto;
     height: 20px;
     width: 20px;
@@ -65,12 +84,6 @@
 
 }
 
-.myButton {
-    padding: 5px 15px;
-    margin: 15px 0;
-    color: teal;
-    font-size: 16px;
-    background: transparent;
-    border: 1px solid teal;
-    cursor: pointer;
+.myTextError {
+    color: tomato;
 }
