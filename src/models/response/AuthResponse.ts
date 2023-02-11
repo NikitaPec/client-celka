@@ -23,5 +23,7 @@ export interface IUser {
   isActivatedEmail: boolean;
   isActivatedPhone: boolean;
   name: string;
+  surname: string | null;
+  patronymic: string | null;
   role: string;
 }

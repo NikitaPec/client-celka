@@ -12,6 +12,8 @@ export default class Store {
     isActivatedEmail: false,
     isActivatedPhone: false,
     name: "",
+    surname: "",
+    patronymic: "",
     role: "",
   };
   isAuth = false;

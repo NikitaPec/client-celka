@@ -69,7 +69,7 @@ h3 span {
 }
 
 .dropdown-menu ul li:hover a {
-    color: rgb(212, 33, 9);
+    color: teal;
     cursor: pointer;
 }
 
