@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from ".";
 import "./App.css";
 import NavBar from "./components/myNavBar/MyNavBar";
@@ -10,7 +10,7 @@ function App() {
     if (localStorage.getItem("token")) {
       store.checkAuth();
     }
-  }, []);
+  }, [store]);
   return (
     <div className="App">
       <NavBar></NavBar>

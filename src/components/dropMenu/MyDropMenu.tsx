@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
 import inbox from "./ico/envelope.png";
+import pngEdit from "./ico/edit.png";
 import settings from "./ico/settings.png";
 import help from "./ico/question.png";
 import logout from "./ico/log-out.png";
+import pngCross from "./ico/icons8-умножение-24.png";
+import pngCheck from "./ico/icons8-галочка-24.png";
 import "./DropMenu.css";
 import { Context } from "../..";
-import { FunctionDeclaration } from "typescript";
+import { observer } from "mobx-react-lite";
 
 interface IPropsMyDropMenu {
   visible: boolean;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  openModalUserSetting: boolean;
+  setOpenModalUserSetting: React.Dispatch<React.SetStateAction<boolean>>;
 }
 interface IPropsDropdownItem {
   img: string;
@@ -17,17 +22,44 @@ interface IPropsDropdownItem {
   functionClick?: any;
 }
 
-const MyDropMenu = ({ visible, setVisible }: IPropsMyDropMenu) => {
+const MyDropMenu = ({
+  visible,
+  setVisible,
+  openModalUserSetting,
+  setOpenModalUserSetting,
+}: IPropsMyDropMenu) => {
   const { store } = useContext(Context);
   return (
     <div className={`dropdown-menu ${visible ? "active" : "inactive"}`}>
       <h3>
         {store.user.name}
         <br />
-        <span>{store.user.email === "" ? store.user.phone : store.user.email}</span>
+        {store.user.phone ? (
+          <div className="loginBlock">
+            <img alt={""} src={store.user.isActivatedPhone ? pngCheck : pngCross} />
+            <div>{store.user.phone}</div>
+          </div>
+        ) : (
+          <div />
+        )}
+        {store.user.email ? (
+          <div className="loginBlock">
+            <img alt={""} src={store.user.isActivatedEmail ? pngCheck : pngCross} />
+            <div>{store.user.email}</div>
+          </div>
+        ) : (
+          <div />
+        )}
       </h3>
       <ul>
-        <DropdownItem img={settings} text={"Настройки"} />
+        <DropdownItem
+          img={pngEdit}
+          text={"Редактировать"}
+          functionClick={() => {
+            setVisible(false);
+            setOpenModalUserSetting(true);
+          }}
+        />
         <DropdownItem img={inbox} text={"Уведомления"} />
         <DropdownItem img={help} text={"Поддержка"} />
         <DropdownItem
@@ -45,11 +77,11 @@ const MyDropMenu = ({ visible, setVisible }: IPropsMyDropMenu) => {
 
 function DropdownItem({ img, text, functionClick }: IPropsDropdownItem) {
   return (
-    <li className="dropdownItem" onClick={functionClick}>
+    <div className="dropdownItem" onClick={functionClick}>
       <img src={img} alt={""}></img>
-      <a> {text} </a>
-    </li>
+      <div> {text} </div>
+    </div>
   );
 }
 
-export default MyDropMenu;
+export default observer(MyDropMenu);

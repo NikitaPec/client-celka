@@ -94,4 +94,6 @@ export default class Store {
       console.log(error);
     }
   }
+
+  async edit(login?: string, password?: string, confirm?: string) {}
 }

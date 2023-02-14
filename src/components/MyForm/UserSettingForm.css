@@ -1,0 +1,34 @@
+.BlockInput {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.nameInput {
+    padding-left: 10px;
+    align-items: flex-start;
+    color: teal;
+}
+
+.UserSettingInput {
+    width: 100%;
+    padding: 5px 5px;
+    font-size: 16px;
+    margin: 5px 10px;
+    border: 1px solid teal;
+    border-radius: 5px;
+}
+
+.Input {
+    display: flex;
+    flex-direction: row;
+}
+
+.UserSettingText {
+    width: 100%;
+    padding: 5px 5px;
+    font-size: 16px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    color: teal;
+}

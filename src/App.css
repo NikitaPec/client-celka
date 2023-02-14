@@ -12,3 +12,25 @@
 .App {
   width: 100%;
 }
+
+.MyButton {
+  padding: 5px 5px;
+  margin: 5px 10px;
+  font-size: 16px;
+  max-width: 100px;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.MyButton.On {
+  color: teal;
+  border-color: teal;
+
+}
+
+.MyButton.Off {
+  color: tomato;
+  border-color: tomato;
+}

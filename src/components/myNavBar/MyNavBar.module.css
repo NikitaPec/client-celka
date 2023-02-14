@@ -15,8 +15,8 @@
     height: 40px;
     width: 40px;
     cursor: pointer;
-    border-width: 2px;
-    border-radius: 14px;
+    border-width: 1px;
+    border-radius: 6px;
     border-color: tomato;
     border-style: solid;
 }
