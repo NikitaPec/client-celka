@@ -8,20 +8,13 @@ import MyModal from "../UI/MyModal/MyModal";
 import { Context } from "../..";
 import MyDropMenu from "../dropMenu/MyDropMenu";
 import { observer } from "mobx-react-lite";
-import UserSettingForm from "../MyForm/UserSettingForm";
+import UserSettingForm from "../UserSettingForm/UserSettingForm";
 import AuthForm from "../AuthForm/AuthForm";
 const NavBar: FC = () => {
   const [openModalLoginForm, setOpenModalLoginForm] = useState(false);
   const [openModalUserSetting, setOpenModalUserSetting] = useState(false);
   const [openDropMenu, setOpenDropMenu] = useState(false);
   const { store } = useContext(Context);
-  const arr = [
-    ["Имя", `${store.user.name === undefined ? "Не указано" : store.user.name}`],
-    ["Фамилия", `${store.user.surname === undefined ? "Не указано" : store.user.surname}`],
-    ["Отчество", `${store.user.patronymic === undefined ? "Не указано" : store.user.patronymic}`],
-    ["Почта", `${store.user.email === null ? "Не указано" : store.user.email}`],
-    ["Телефон", `${store.user.phone === null ? "Не указано" : store.user.phone}`],
-  ];
   return (
     <div className={classes.myNavBar}>
       <img
@@ -44,17 +37,10 @@ const NavBar: FC = () => {
         <AuthForm visibleModal={openModalLoginForm} setVisibleModal={setOpenModalLoginForm} />
       </MyModal>
       <MyModal visibleModal={openModalUserSetting} setVisibleModal={setOpenModalUserSetting}>
-        <div>
-          {arr.map((iter, index) => (
-            <UserSettingForm
-              NameInput={iter[0]}
-              TypeInput="text"
-              defaultPlaceHolder={iter[1]}
-              FunctionButton
-              key={index}
-            />
-          ))}
-        </div>
+        <UserSettingForm
+          visibleModal={openModalUserSetting}
+          setVisibleModal={setOpenModalUserSetting}
+        />
       </MyModal>
       <MyDropMenu
         visible={openDropMenu}

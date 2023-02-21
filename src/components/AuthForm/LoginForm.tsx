@@ -6,6 +6,7 @@ import imgShowPass from "./png/icons8-показать-48.png";
 import imgHigePass from "./png/icons8-скрыто-48.png";
 import { LoginFormInputProps } from "./interface";
 import { observer } from "mobx-react-lite";
+import { defaultValue } from "./AuthForm";
 
 const LoginForm: FC<LoginFormInputProps> = (props) => {
   const { store } = useContext(Context);
@@ -15,23 +16,12 @@ const LoginForm: FC<LoginFormInputProps> = (props) => {
       ...prevState,
       loginStor: {
         ...prevState.loginStor,
-        login: "",
-        password: "",
         arrayErrorLogin: store.errors.login,
         arrayErrorPassword: store.errors.password,
       },
     }));
     if (store.isAuth === true) {
-      props.SetAuthFormStor((prevState) => ({
-        ...prevState,
-        loginStor: {
-          ...prevState.loginStor,
-          login: "",
-          password: "",
-          arrayErrorLogin: [],
-          arrayErrorPassword: [],
-        },
-      }));
+      props.SetAuthFormStor(defaultValue);
       props.setVisibleModal(false);
     }
   }

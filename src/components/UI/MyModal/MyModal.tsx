@@ -10,7 +10,7 @@ const MyModal: FC<Props> = (props) => {
   return (
     <div
       className={props.visibleModal ? "modal active" : "modal inactive"}
-      onClick={() => props.setVisibleModal(false)}
+      onClick={(event) => props.setVisibleModal(false)}
     >
       <div className={"myModalContent"} onClick={(event) => event.stopPropagation()}>
         {props.children}

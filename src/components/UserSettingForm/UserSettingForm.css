@@ -1,10 +1,10 @@
 .BlockInput {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 5px 10px 0px 10px;
 }
 
-.nameInput {
+.NameInput {
     padding-left: 10px;
     align-items: flex-start;
     color: teal;
@@ -12,23 +12,20 @@
 
 .UserSettingInput {
     width: 100%;
-    padding: 5px 5px;
-    font-size: 16px;
-    margin: 5px 10px;
+    padding: 5px 15px;
+    margin: 5px 0;
     border: 1px solid teal;
     border-radius: 5px;
 }
 
-.Input {
+.BlockButton {
     display: flex;
     flex-direction: row;
+    justify-content: space-around
 }
 
-.UserSettingText {
-    width: 100%;
-    padding: 5px 5px;
-    font-size: 16px;
-    margin: 5px 10px;
-    border-radius: 5px;
-    color: teal;
+.UserSettingselector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around
 }
