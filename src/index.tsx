@@ -1,23 +1,21 @@
-import React, { createContext } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Store from './store/store';
+import React, { createContext } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import Stor from "./store/store";
 
-interface IStore {
-  store: Store
+interface IStor {
+  stor: Stor;
 }
 
-const store = new Store();
+const stor = new Stor();
 
-export const Context = createContext<IStore>({
-  store,
-})
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+export const Context = createContext<IStor>({
+  stor,
+});
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <Context.Provider value={{ store }}>
+  <Context.Provider value={{ stor }}>
     <App />
   </Context.Provider>
 );

@@ -3,8 +3,9 @@ import { makeAutoObservable } from "mobx";
 import { API_URL } from "../API";
 import { IError, IUser } from "../models/response/AuthResponse";
 import AuthService from "../service/AuthService";
+import EditService from "../service/EditService";
 
-export default class Store {
+export default class Stor {
   user: IUser = {
     email: "",
     phone: "",
@@ -17,8 +18,11 @@ export default class Store {
     role: "",
   };
   isAuth = false;
+
   errors: IError = {
     login: [],
+    email: [],
+    phone: [],
     password: [],
     confirm: [],
   };
@@ -28,6 +32,16 @@ export default class Store {
 
   setAuth(bool: boolean) {
     this.isAuth = bool;
+  }
+
+  setClearErrors() {
+    this.errors = {
+      login: [],
+      email: [],
+      phone: [],
+      password: [],
+      confirm: [],
+    };
   }
 
   setErrors(error: IError) {
@@ -95,5 +109,19 @@ export default class Store {
     }
   }
 
-  async edit(login?: string, password?: string, confirm?: string) {}
+  async editUser(user: any) {
+    try {
+      const response = await EditService.userEdit(user);
+      if (response.data.success === true) {
+        this.setErrors(response.data.errors);
+        localStorage.setItem("token", response.data.data.accessToken);
+        this.setAuth(true);
+        this.setUser(response.data.data.user);
+      } else {
+        this.setErrors(response.data.errors);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

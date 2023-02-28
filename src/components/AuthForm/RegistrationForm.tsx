@@ -9,9 +9,9 @@ import { observer } from "mobx-react-lite";
 import { defaultValue } from "./AuthForm";
 
 const RegistrationForm: FC<LoginFormInputProps> = (props) => {
-  const { store } = useContext(Context);
+  const { stor } = useContext(Context);
   async function registration() {
-    await store.registration(
+    await stor.registration(
       props.AuthFormStor.registrationStor.login,
       props.AuthFormStor.registrationStor.password,
       props.AuthFormStor.registrationStor.confirm
@@ -20,12 +20,12 @@ const RegistrationForm: FC<LoginFormInputProps> = (props) => {
       ...prevState,
       registrationStor: {
         ...prevState.registrationStor,
-        arrayErrorLogin: store.errors.login,
-        arrayErrorPassword: store.errors.password,
-        arrayErrorConfirm: store.errors.confirm,
+        arrayErrorLogin: stor.errors.login,
+        arrayErrorPassword: stor.errors.password,
+        arrayErrorConfirm: stor.errors.confirm,
       },
     }));
-    if (store.isAuth === true) {
+    if (stor.isAuth === true) {
       props.SetAuthFormStor(defaultValue);
       props.setVisibleModal(false);
     }

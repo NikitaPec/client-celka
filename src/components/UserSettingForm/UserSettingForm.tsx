@@ -2,26 +2,23 @@ import { observer } from "mobx-react-lite";
 import React, { FC, useContext, useEffect } from "react";
 import { useState } from "react";
 import { Context } from "../..";
-import {
-  EditItemInputProps,
-  UserEditStoreHook,
-  UserSettingFormInterfaceInputProps,
-} from "./interface";
+import EditPersonalData from "./EditPersonalData";
+import { UserEditStoreHook, UserSettingFormInterfaceInputProps } from "./interface";
 import "./UserSettingForm.css";
 
 const UserSettingForm: FC<UserSettingFormInterfaceInputProps> = (props) => {
-  const { store } = useContext(Context);
+  const { stor } = useContext(Context);
   const [tab, setTab] = useState("user");
   const [userEditStor, setUserEditStor] = useState<Array<UserEditStoreHook>>([]);
   useEffect(() => {
     setUserEditStor([
-      { title: "Имя", value: store.user.name },
-      { title: "Фамилия", value: store.user.surname },
-      { title: "Отчество", value: store.user.patronymic },
-      { title: "Почта", value: store.user.email },
-      { title: "Телефон", value: store.user.phone },
+      { title: "Фамилия", value: stor.user.surname, errors: [] },
+      { title: "Имя", value: stor.user.name, errors: [] },
+      { title: "Отчество", value: stor.user.patronymic, errors: [] },
+      { title: "Почта", value: stor.user.email, errors: stor.errors.email },
+      { title: "Телефон", value: stor.user.phone, errors: stor.errors.phone },
     ]);
-  }, [store.user, props.visibleModal]);
+  }, [stor.user, stor.errors, props.visibleModal]);
   return (
     <div className="BlockInput">
       <div className="UserSettingselector">
@@ -44,43 +41,15 @@ const UserSettingForm: FC<UserSettingFormInterfaceInputProps> = (props) => {
           Пароль
         </div>
       </div>
-      {tab === "user" &&
-        userEditStor.map((item, index) => (
-          <EditItem
-            key={index}
-            title={item.title}
-            value={item.value}
-            setUserEditStor={setUserEditStor}
-          />
-        ))}
-      <div className="BlockButton">
-        <button className={"MyButton Off"} onClick={() => props.setVisibleModal(false)}>
-          Отмена
-        </button>
-        <button className={"MyButton On"}>Применить</button>
-      </div>
+      {tab === "user" && (
+        <EditPersonalData
+          setUserEditStor={setUserEditStor}
+          userEditStor={userEditStor}
+          setVisibleModal={props.setVisibleModal}
+        />
+      )}
     </div>
   );
 };
-
-function EditItem(props: EditItemInputProps) {
-  return (
-    <div>
-      <div className="NameInput">{`${props.title} :`}</div>
-      <input
-        className="UserSettingInput"
-        value={props.value != null ? props.value : ""}
-        placeholder={props.value != null ? undefined : "Не указано"}
-        onChange={(e) =>
-          props.setUserEditStor((prevState) =>
-            prevState.map((item) =>
-              item.title === props.title ? { ...item, value: e.target.value } : item
-            )
-          )
-        }
-      ></input>
-    </div>
-  );
-}
 
 export default observer(UserSettingForm);

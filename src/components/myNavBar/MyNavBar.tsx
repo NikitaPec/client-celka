@@ -14,24 +14,24 @@ const NavBar: FC = () => {
   const [openModalLoginForm, setOpenModalLoginForm] = useState(false);
   const [openModalUserSetting, setOpenModalUserSetting] = useState(false);
   const [openDropMenu, setOpenDropMenu] = useState(false);
-  const { store } = useContext(Context);
+  const { stor } = useContext(Context);
   return (
     <div className={classes.myNavBar}>
       <img
         className={classes.myBarItem}
-        style={store.isAuth ? { borderColor: "teal" } : { borderColor: "tomato" }}
+        style={stor.isAuth ? { borderColor: "teal" } : { borderColor: "tomato" }}
         alt={""}
-        src={store.isAuth ? pngLcTe : pngLcTo}
+        src={stor.isAuth ? pngLcTe : pngLcTo}
         onClick={() => {
-          store.isAuth ? setOpenDropMenu(!openDropMenu) : setOpenModalLoginForm(true);
+          stor.isAuth ? setOpenDropMenu(!openDropMenu) : setOpenModalLoginForm(true);
         }}
       ></img>
       <img
         className={classes.myBarItem}
-        style={store.isAuth ? { borderColor: "teal" } : { borderColor: "tomato" }}
+        style={stor.isAuth ? { borderColor: "teal" } : { borderColor: "tomato" }}
         alt={""}
-        src={store.isAuth ? pngBasketTe : pngBasketTo}
-        onClick={() => console.log(store.isAuth)}
+        src={stor.isAuth ? pngBasketTe : pngBasketTo}
+        onClick={() => console.log(stor.isAuth)}
       ></img>
       <MyModal visibleModal={openModalLoginForm} setVisibleModal={setOpenModalLoginForm}>
         <AuthForm visibleModal={openModalLoginForm} setVisibleModal={setOpenModalLoginForm} />

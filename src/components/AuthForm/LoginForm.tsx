@@ -9,18 +9,18 @@ import { observer } from "mobx-react-lite";
 import { defaultValue } from "./AuthForm";
 
 const LoginForm: FC<LoginFormInputProps> = (props) => {
-  const { store } = useContext(Context);
+  const { stor } = useContext(Context);
   async function loogin() {
-    await store.login(props.AuthFormStor.loginStor.login, props.AuthFormStor.loginStor.password);
+    await stor.login(props.AuthFormStor.loginStor.login, props.AuthFormStor.loginStor.password);
     props.SetAuthFormStor((prevState) => ({
       ...prevState,
       loginStor: {
         ...prevState.loginStor,
-        arrayErrorLogin: store.errors.login,
-        arrayErrorPassword: store.errors.password,
+        arrayErrorLogin: stor.errors.login,
+        arrayErrorPassword: stor.errors.password,
       },
     }));
-    if (store.isAuth === true) {
+    if (stor.isAuth === true) {
       props.SetAuthFormStor(defaultValue);
       props.setVisibleModal(false);
     }

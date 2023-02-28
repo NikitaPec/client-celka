@@ -28,24 +28,24 @@ const MyDropMenu = ({
   openModalUserSetting,
   setOpenModalUserSetting,
 }: IPropsMyDropMenu) => {
-  const { store } = useContext(Context);
+  const { stor } = useContext(Context);
   return (
     <div className={`dropdown-menu ${visible ? "active" : "inactive"}`}>
       <h3>
-        {store.user.name}
+        {stor.user.name}
         <br />
-        {store.user.phone ? (
+        {stor.user.phone ? (
           <div className="loginBlock">
-            <img alt={""} src={store.user.isActivatedPhone ? pngCheck : pngCross} />
-            <div>{store.user.phone}</div>
+            <img alt={""} src={stor.user.isActivatedPhone ? pngCheck : pngCross} />
+            <div>{stor.user.phone}</div>
           </div>
         ) : (
           <div />
         )}
-        {store.user.email ? (
+        {stor.user.email ? (
           <div className="loginBlock">
-            <img alt={""} src={store.user.isActivatedEmail ? pngCheck : pngCross} />
-            <div>{store.user.email}</div>
+            <img alt={""} src={stor.user.isActivatedEmail ? pngCheck : pngCross} />
+            <div>{stor.user.email}</div>
           </div>
         ) : (
           <div />
@@ -66,7 +66,7 @@ const MyDropMenu = ({
           img={logout}
           text={"Выход"}
           functionClick={() => {
-            store.logout();
+            stor.logout();
             setVisible(false);
           }}
         />

@@ -5,12 +5,12 @@ import "./App.css";
 import NavBar from "./components/myNavBar/MyNavBar";
 
 function App() {
-  const { store } = useContext(Context);
+  const { stor } = useContext(Context);
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      store.checkAuth();
+      stor.checkAuth();
     }
-  }, [store]);
+  }, [stor]);
   return (
     <div className="App">
       <NavBar></NavBar>

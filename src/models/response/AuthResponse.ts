@@ -6,6 +6,8 @@ export interface AuthResponse {
 
 export interface IError {
   login: Array<string>;
+  email: Array<string>;
+  phone: Array<string>;
   password: Array<string>;
   confirm: Array<string>;
 }
