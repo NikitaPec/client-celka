@@ -4,12 +4,12 @@ import pngLcTo from "./ico/icons8-пользователь-без-половых
 import pngLcTe from "./ico/icons8-пользователь-без-половых-признаков-96-teal.png";
 import pngBasketTo from "./ico/icons8-корзина-96-tomato.png";
 import pngBasketTe from "./ico/icons8-корзина-96-teal.png";
-import MyModal from "../UI/MyModal/MyModal";
-import { Context } from "../..";
 import MyDropMenu from "../dropMenu/MyDropMenu";
 import { observer } from "mobx-react-lite";
 import UserSettingForm from "../UserSettingForm/UserSettingForm";
 import AuthForm from "../AuthForm/AuthForm";
+import { Context } from "../../..";
+import MyModal from "../../UI/MyModal/MyModal";
 const NavBar: FC = () => {
   const [openModalLoginForm, setOpenModalLoginForm] = useState(false);
   const [openModalUserSetting, setOpenModalUserSetting] = useState(false);

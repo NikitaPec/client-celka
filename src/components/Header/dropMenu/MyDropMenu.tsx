@@ -7,7 +7,7 @@ import logout from "./ico/log-out.png";
 import pngCross from "./ico/icons8-умножение-24.png";
 import pngCheck from "./ico/icons8-галочка-24.png";
 import "./DropMenu.css";
-import { Context } from "../..";
+import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
 interface IPropsMyDropMenu {

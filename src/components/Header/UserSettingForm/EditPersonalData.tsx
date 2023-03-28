@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { FC, useContext } from "react";
-import { Context } from "../..";
+import { Context } from "../../..";
 import { EditItemInputProps, EditPersonalDataInputProps } from "./interface";
 
 const EditPersonalData: FC<EditPersonalDataInputProps> = (props) => {
