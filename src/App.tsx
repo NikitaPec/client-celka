@@ -1,7 +1,9 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import { Context } from ".";
 import "./App.css";
+import Home from "./page/home/Home";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -13,7 +15,9 @@ function App() {
   }, [stor]);
   return (
     <div className="App">
-      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

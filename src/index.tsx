@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import "./index.scss";
 import App from "./App";
 import Stor from "./store/store";
 
@@ -16,6 +17,8 @@ export const Context = createContext<IStor>({
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <Context.Provider value={{ stor }}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Context.Provider>
 );
