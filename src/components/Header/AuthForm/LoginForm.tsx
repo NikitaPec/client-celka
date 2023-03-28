@@ -1,5 +1,5 @@
 import React, { FC, useContext } from "react";
-import { Context } from "../..";
+import { Context } from "../../..";
 import "./AuthForm.css";
 import ErrorList from "./errorList";
 import imgShowPass from "./png/icons8-показать-48.png";

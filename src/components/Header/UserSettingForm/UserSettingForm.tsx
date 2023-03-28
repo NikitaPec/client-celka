@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React, { FC, useContext, useEffect } from "react";
 import { useState } from "react";
-import { Context } from "../..";
+import { Context } from "../../..";
 import EditPersonalData from "./EditPersonalData";
 import { UserEditStoreHook, UserSettingFormInterfaceInputProps } from "./interface";
 import "./UserSettingForm.css";

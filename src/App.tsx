@@ -1,8 +1,9 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import { Context } from ".";
 import "./App.css";
-import NavBar from "./components/myNavBar/MyNavBar";
+import Home from "./page/home/Home";
 
 function App() {
   const { stor } = useContext(Context);
@@ -13,7 +14,9 @@ function App() {
   }, [stor]);
   return (
     <div className="App">
-      <NavBar></NavBar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

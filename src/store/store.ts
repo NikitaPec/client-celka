@@ -17,7 +17,8 @@ export default class Stor {
     patronymic: "",
     role: "",
   };
-  isAuth = false;
+  isAuth = true;
+  isAdmin = true;
 
   errors: IError = {
     login: [],
@@ -32,6 +33,10 @@ export default class Stor {
 
   setAuth(bool: boolean) {
     this.isAuth = bool;
+  }
+
+  setAdmin(bool: boolean) {
+    this.isAdmin = bool;
   }
 
   setClearErrors() {
