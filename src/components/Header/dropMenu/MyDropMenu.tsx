@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import inbox from "./ico/envelope.png";
 import pngEdit from "./ico/edit.png";
+//import settings from "./ico/settings.png";
 import help from "./ico/question.png";
 import logout from "./ico/log-out.png";
 import pngCross from "./ico/icons8-умножение-24.png";

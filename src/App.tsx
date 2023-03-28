@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { Context } from ".";
 import "./App.css";
 import Home from "./page/home/Home";
+import Header from "./components/Header/Header";
 
 function App() {
   const { stor } = useContext(Context);
